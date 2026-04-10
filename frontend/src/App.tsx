@@ -1,11 +1,25 @@
-import './index.css';
+import './App.css'
+import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
+import { Button } from './components/ui/button'
 
 function App() {
-
   return (
-    <h1 className="text-red-600 font-bold underline">
-  Hello world!
-</h1>
+    <>
+    <h1>This is my app.</h1>
+      <header>
+        <Show when="signed-out">
+          <Button>
+          <SignInButton />
+          </Button>
+          <Button>
+          <SignUpButton />
+          </Button>
+        </Show>
+        <Show when="signed-in">
+          <UserButton />
+        </Show>
+      </header>
+    </>
   )
 }
 
