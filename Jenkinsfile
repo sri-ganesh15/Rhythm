@@ -40,9 +40,9 @@ pipeline {
           passwordVariable: 'PASS'
         )]) {
           sh """
-          echo $PASS | docker login -u $USER --password-stdin
-          docker push $DOCKER_USER/$BACKEND_IMG:$IMAGE_TAG
-          docker push $DOCKER_USER/$FRONTEND_IMG:$IMAGE_TAG
+            echo $PASS | docker login -u $USER --password-stdin
+            docker push $DOCKER_USER/$BACKEND_IMG:$IMAGE_TAG
+            docker push $DOCKER_USER/$FRONTEND_IMG:$IMAGE_TAG
           """
         }
       }
@@ -51,9 +51,9 @@ pipeline {
     stage("Deploy to Kubernetes") {
       steps {
         sh """
-        kubectl apply -f K8s/backend-deployment.yaml
-        kubectl apply -f K8s/frontend-deployment.yaml
-        kubectl apply -f K8s/Service.yaml
+          envsubst < K8s/backend-deployment.yaml | kubectl apply -f -
+          envsubst < K8s/frontend-deployment.yaml | kubectl apply -f -
+          kubectl apply -f K8s/Service.yaml
         """
       }
     }
