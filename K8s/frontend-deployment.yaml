@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sriganesh15/frontend:latest
+        image: sriganesh15/frontend:${BUILD_NUMBER}
         ports:
         - containerPort: 80
