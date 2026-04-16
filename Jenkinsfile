@@ -52,7 +52,7 @@ pipeline {
         sh """
         kubectl apply -f K8s/backend-deployment.yaml
         kubectl apply -f K8s/frontend-deployment.yaml
-        kubectl apply -f K8s/Services.yaml
+        kubectl apply -f K8s/Service.yaml
         """
       }
     }
