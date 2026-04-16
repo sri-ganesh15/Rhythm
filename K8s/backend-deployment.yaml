@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: backend
-        image: sriganesh15/backend:latest
+        image: sriganesh15/backend:${BUILD_IMAGE}
         ports:
         - containerPort: 5000
