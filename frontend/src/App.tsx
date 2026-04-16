@@ -5,7 +5,7 @@ import { Button } from './components/ui/button'
 function App() {
   return (
     <>
-    <h1>This is my app.</h1>
+    <h1>My name is Ganesh.</h1>
       <header>
         <Show when="signed-out">
           <Button>
