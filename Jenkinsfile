@@ -50,9 +50,9 @@ pipeline {
     stage("Deploy to Kubernetes") {
       steps {
         sh """
-        kubectl apply -f k8s/backend-deployment.yaml
-        kubectl apply -f k8s/frontend-deployment.yaml
-        kubectl apply -f k8s/services.yaml
+        kubectl apply -f K8s/backend-deployment.yaml
+        kubectl apply -f K8s/frontend-deployment.yaml
+        kubectl apply -f K8s/services.yaml
         """
       }
     }
